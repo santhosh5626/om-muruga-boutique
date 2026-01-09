@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Om Muruga Boutique - Buy Online</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <header><h1>Om Muruga Boutiques</h1></header>
+  <nav>…same nav links…</nav>
+
+  <section>
+    <h2>Buy Online (WhatsApp Order)</h2>
+    <div class="order-box">
+      <select id="orderType" onchange="updateColors()">
+        <option value="">Select Saree Type</option>
+        <option value="Silk Saree">Silk Saree</option>
+        <option value="Cotton Saree">Cotton Saree</option>
+        <option value="Designer Saree">Designer Saree</option>
+      </select>
+      <select id="orderColor"><option value="">Select Color</option></select>
+      <select id="orderPrice"><option value="">Select Price</option></select>
+      <button class="buy-btn" onclick="orderWhatsApp()">Buy on WhatsApp</button>
+    </div>
+  </section>
+
+  <footer>© 2026 Om Muruga Boutiques</footer>
+</body>
+</html>
