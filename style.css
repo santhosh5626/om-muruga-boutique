@@ -1,159 +1,153 @@
-:root{--primary:#8e0038;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;background:#faf6f8;}
-
-header{
-  background:linear-gradient(135deg,#8e0038,#4b001d);
-  color:white;
-  padding:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:15px;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header img{width:55px;border-radius:50%;background:white;padding:5px;}
-
-nav{
-  background:white;
-  position:sticky;
-  top:0;
-  box-shadow:0 4px 10px rgba(0,0,0,.1);
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
 }
 
-nav ul{
-  list-style:none;
-  display:flex;
-  justify-content:center;
-  padding:10px;
-  flex-wrap:wrap;
+/* Header */
+.site-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #8e2c50, #d17b88);
+  color: #fff;
 }
 
-nav li{margin:0 15px;}
-nav a{text-decoration:none;color:#333;font-weight:500;}
+.shop-logo {
+  width: 120px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 15px;
+}
 
-/* HERO SECTION */
+.site-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+/* Navigation */
+nav {
+  background: #5c1c35;
+  padding: 12px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffd700;
+}
+
+/* Hero */
 .hero {
-  height:70vh; /* slightly taller */
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position: relative;
-  overflow: hidden; /* ensures background zoom doesn't overflow */
+  background: url('https://via.placeholder.com/1200x400?text=Saree+Collection') no-repeat center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6d/Murugan_statue.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index:1;
-  filter: brightness(0.5); /* dark overlay for readability */
-  animation: heroZoom 20s ease-in-out infinite alternate;
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
-.hero h2 {
-  font-size:3rem;
-  font-family:'Playfair Display', serif;
-  position: relative;
-  z-index:2;
-  color:white;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  animation: fadeIn 2s ease forwards;
+h2 {
+  color: #8e2c50;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
 }
 
-/* FADE-IN ANIMATION */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* Products Grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-/* HERO ZOOM-IN ANIMATION */
-@keyframes heroZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-section{padding:60px 8%;}
-h2{text-align:center;color:var(--primary);margin-bottom:40px;font-family:'Playfair Display';}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.2);
 }
 
-.card,.details-card{
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,.1);
-  text-align:center;
-  transition:.3s;
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
 }
 
-.card:hover{transform:translateY(-6px);cursor:pointer;}
-
-.price{color:var(--primary);font-weight:600;}
-
-.buy-btn{
-  background:#25D366;
-  color:white;
-  border:none;
-  padding:10px 18px;
-  border-radius:25px;
-  cursor:pointer;
-  margin-top:15px;
+.price {
+  color: #555;
+  font-weight: bold;
 }
 
-.color-tag{
-  display:inline-block;
-  background:#f3d6dd;
-  padding:6px 14px;
-  border-radius:20px;
-  margin:6px 4px;
-  font-size:.9rem;
+/* Buttons */
+.buy-btn {
+  background: #8e2c50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* ONLINE BUY SECTION */
-.order-box{
-  max-width:500px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.1);
+.buy-btn:hover {
+  background: #5c1c35;
 }
 
-.order-box select{
-  width:100%;
-  padding:10px;
-  margin-bottom:15px;
-  border-radius:10px;
-  border:1px solid #ccc;
+/* About & Contact */
+.about, .contact {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.about,.contact{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 20px rgba(0,0,0,.1);
-  text-align:center;
-}
-
-footer{
-  background:#8e0038;
-  color:white;
-  text-align:center;
-  padding:15px;
-}
-
-@media(max-width:768px){
-  .hero h2{font-size:2rem;}
+/* Footer */
+footer {
+  background: #5c1c35;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
 }
