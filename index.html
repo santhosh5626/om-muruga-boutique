@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>om murugaboutiques</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Murugan_statue.jpg" alt="Murugan Logo">
+  <h1>om murugaboutiques</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#buyonline">Buy Online</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h2>Elegant Sarees for Every Occasion</h2>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection">
+  <h2>Saree Types</h2>
+  <div class="products">
+    <div class="card" onclick="openDetails('Silk Saree')">
+      <h3>Pure Silk Sarees</h3>
+      <p class="price">From ₹8,999</p>
+    </div>
+    <div class="card" onclick="openDetails('Cotton Saree')">
+      <h3>Cotton Sarees</h3>
+      <p class="price">From ₹3,499</p>
+    </div>
+    <div class="card" onclick="openDetails('Designer Saree')">
+      <h3>Designer Sarees</h3>
+      <p class="price">From ₹6,799</p>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS PAGE -->
+<section id="detailsPage" style="display:none;">
+  <h2 id="detailsTitle"></h2>
+  <div class="products" id="detailsContent"></div>
+  <div style="text-align:center;margin-top:30px;">
+    <button class="buy-btn" onclick="goBack()">⬅ Back</button>
+  </div>
+</section>
+
+<!-- BUY ONLINE SECTION -->
+<section id="buyonline">
+  <h2>Buy Online (WhatsApp Order)</h2>
+
+  <div class="order-box">
+    <select id="orderType" onchange="updateColors()">
+      <option value="">Select Saree Type</option>
+      <option value="Silk Saree">Silk Saree</option>
+      <option value="Cotton Saree">Cotton Saree</option>
+      <option value="Designer Saree">Designer Saree</option>
+    </select>
+
+    <select id="orderColor">
+      <option value="">Select Color</option>
+    </select>
+
+    <select id="orderPrice">
+      <option value="">Select Price</option>
+    </select>
+
+    <button class="buy-btn" onclick="orderWhatsApp()">Buy on WhatsApp</button>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <div class="about">
+    <p>
+      om murugaboutiques offers premium silk, cotton & designer sarees inspired by tradition and elegance.
+      Order directly through WhatsApp.
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <p>
+      📞 +91 98765 43210<br>
+      📧 ommurugaboutiques@gmail.com<br>
+      📍 Chennai, Tamil Nadu
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 om murugaboutiques
+</footer>
+
+<!-- External JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
