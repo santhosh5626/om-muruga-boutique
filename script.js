@@ -1,79 +1,30 @@
-// Show product details dynamically
-function openDetails(type) {
-  const detailsPage = document.getElementById("detailsPage");
-  const detailsTitle = document.getElementById("detailsTitle");
-  const detailsContent = document.getElementById("detailsContent");
+let params = new URLSearchParams(window.location.search);
+let type = params.get("type");
 
-  detailsTitle.textContent = type;
-  detailsContent.innerHTML = "";
+let data = {
+ "Silk Saree": { colors: ["Red", "Green", "Blue"], price: "₹8,999 - ₹18,999" },
+ "Cotton Saree": { colors: ["White", "Yellow", "Pink"], price: "₹3,499 - ₹6,999" },
+ "Designer Saree": { colors: ["Black", "Maroon", "Royal Blue"], price: "₹6,799 - ₹15,499" }
+};
 
-  // Example saree variations
-  const variations = {
-    "Silk Saree": ["Red Silk", "Blue Silk", "Green Silk"],
-    "Cotton Saree": ["White Cotton", "Yellow Cotton", "Pink Cotton"],
-    "Designer Saree": ["Black Designer", "Gold Designer", "Purple Designer"]
-  };
+document.getElementById("title").innerText = type;
 
-  variations[type].forEach(color => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `<h3>${color}</h3><p class="price">₹${Math.floor(Math.random()*2000+5000)}</p>`;
-    detailsContent.appendChild(card);
-  });
+document.getElementById("info").innerHTML =
+"<h3>Available Colors</h3>" + data[type].colors.join(", ") +
+"<h3>Price Range</h3>" + data[type].price;
 
-  document.getElementById("collection").style.display = "none";
-  detailsPage.style.display = "block";
-}
+function buy(){
+  let payment = document.getElementById("payment").value;
 
-function goBack() {
-  document.getElementById("detailsPage").style.display = "none";
-  document.getElementById("collection").style.display = "block";
-}
-
-// WhatsApp order logic
-function updateColors() {
-  const type = document.getElementById("orderType").value;
-  const colorSelect = document.getElementById("orderColor");
-  const priceSelect = document.getElementById("orderPrice");
-
-  colorSelect.innerHTML = "<option value=''>Select Color</option>";
-  priceSelect.innerHTML = "<option value=''>Select Price</option>";
-
-  const options = {
-    "Silk Saree": { colors: ["Red", "Blue", "Green"], prices: ["8999", "9999", "10999"] },
-    "Cotton Saree": { colors: ["White", "Yellow", "Pink"], prices: ["3499", "3999", "4499"] },
-    "Designer Saree": { colors: ["Black", "Gold", "Purple"], prices: ["6799", "7299", "7999"] }
-  };
-
-  if (options[type]) {
-    options[type].colors.forEach(c => {
-      const opt = document.createElement("option");
-      opt.value = c;
-      opt.textContent = c;
-      colorSelect.appendChild(opt);
-    });
-
-    options[type].prices.forEach(p => {
-      const opt = document.createElement("option");
-      opt.value = p;
-      opt.textContent = "₹" + p;
-      priceSelect.appendChild(opt);
-    });
-  }
-}
-
-function orderWhatsApp() {
-  const type = document.getElementById("orderType").value;
-  const color = document.getElementById("orderColor").value;
-  const price = document.getElementById("orderPrice").value;
-
-  if (!type || !color || !price) {
-    alert("⚠️ Please select saree type, color, and price before ordering.");
+  if(!payment){
+    alert("Please select a payment method");
     return;
   }
 
-  const message = `Hello Om Muruga Boutique, I would like to order a ${color} ${type} for ₹${price}.`;
-  const whatsappURL = `https://wa.me/918682989374?text=${encodeURIComponent(message)}`;
+  let msg = "Hello Om Muruga Boutique,%0A" +
+            "Saree Type: " + type + "%0A" +
+            "Payment Method: " + payment + "%0A" +
+            "Please send me UPI details.";
 
-  window.open(whatsappURL, "_blank");
+  window.open("https://wa.me/918682989374?text=" + msg);
 }
